@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='jquery.js'> </script>
+    <style>
+        table {
+          border-collapse:collapse;
+          border-spacing:0;    
+          border:1px black solid;
+          margin-top: 20px;
+        }
+        th, td {
+          padding:5px 10px;
+          border:1px black solid;}
+        th{
+          background-color: #87F97B;
+        }
+        tr:nth-child(even) {
+          background-color: #EDEDED;
+        }
+        tr:nth-child(odd) {
+          background-color: #FFF;
+        }
+        </style>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <button id="btn2">Show</button>
+    <button id="btn3">Set</button>
+    <button id="btn4">Tampil</button>
+    <button id="btn5">Tambah</button>
+    <button id="btn6">Hapus</button>
+    <input type="text" id="txt1"></input>
+    <input type="text" id="txt2"></input>
+    <input type="text" id="txt3"></input>
+
+    <div id="tes">Tulisan Jquery</div>
+    <table id='grid'>
+        <tr>
+            <th>Nik</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+        </tr>
+    </table>
+    <script>
+        $(document).ready(function() {
+            $("#btn1").click(function() {
+                $("#tes").hide();
+            });
+            $("#btn2").click(function() {
+                $("#tes").show();
+            });
+            $("#btn3").click(function() {
+                $("#tes").html("tesss aja");
+            });
+            $("#btn4").click(function() {
+                alert($("#txt1").val());
+            });
+            $("#btn5").click(function() {
+              
+                var nik = $("#txt1").val();
+                var nama = $("#txt2").val();
+                var jurusan = $("#txt3").val();
+                var baris = "<tr>"+"<td>"+nik+"</td><td>"+nama+"</td><td>"+jurusan+"</td></tr>"; 
+                $("#grid").append(baris);
+            });
+            $("#btn6").click(function() {
+                $("#grid").empty();
+            });
+            $('#grid').on('click', 'tbody tr', function(event) {
+                var details = '';
+                details += 'Nik : ' + $(this).find('td:first-child').html() + '\n';
+                details += 'Nama : ' + $(this).find('td:nth-child(2)').html() + '\n';
+                details += 'Jurusan : ' + $(this).find('td:nth-child(3)').html() + '\n';
+                alert(details);
+            });
+
+          
+        });
+    </script>
+</body>
+</html>

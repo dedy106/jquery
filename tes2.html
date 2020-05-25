@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src='jquery.js'> </script>
+</head>
+<body>
+    
+</body>
+<table id="tblData">
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Country</th>
+</tr>
+<tr>
+<td>Maria Anders</td>
+<td>30</td>
+<td>Germany</td>
+</tr>
+<tr>
+<td>Francisco Chang</td>
+<td>24</td>
+<td>Mexico</td>
+</tr>
+<tr>
+<td>Roland Mendel</td>
+<td>100</td>
+<td>Austria</td>
+</tr>
+<tr>
+<td>Helen Bennett</td>
+<td>28</td>
+<td>UK</td>
+</tr>
+<tr>
+<td>Yoshi Tannamuri</td>
+<td>35</td>
+<td>Canada</td>
+</tr>
+<tr>
+<td>Giovanni Rovelli</td>
+<td>46</td>
+<td>Italy</td>
+</tr>
+<tr>
+<td>Alex Smith</td>
+<td>59</td>
+<td>USA</td>
+</tr>
+</table>
+<br/>
+<span id="spnText"></span>
+
+<script>
+    $(document).ready(function() {
+        $("#tblData tr:has(td)").mouseover(function(e) {
+            
+        });
+        $("#tblData tr:has(td)").click(function(e) {
+            $("#tblData td").removeClass("highlight");
+            var clickedCell= $(e.target).closest("td");
+            clickedCell.addClass("highlight");
+            //$(this).parents("tr").find("td:eq(0)").html('<input name="edit_name" value="tes">');
+            $("#spnText").html('Clicked table cell value is: <b> ' + clickedCell.text() + '</b>');
+            //$(this).hide();
+
+
+        });
+    });
+</script>
+</body>
+</html>

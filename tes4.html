@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='jquery.js'> </script>
+</head>
+<body>
+    <button id="btn1">View</button>
+    <button id="btn2">Tambah</button>
+    <button id="btn3">Edit</button>
+    <button id="btn6">Tambah Grid</button>
+
+    <div id="view">
+        <h1>Page view</h1>
+        <table id='grid'>
+        <tr>
+            <th>Nik</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+        </tr>
+    </table>
+    </div>
+
+    <div id="tambah">
+        <h1>Page tambah</h1>
+        NIK : <input type="text" id="nik" value="NIK" /><br />
+        Nama : <input type="text" id="nama" value="Nama" /><br />
+        <label>Jurusan:</label>
+        <select  id="jurusan">
+            <option value="J01">Informatika</option>
+            <option value="J02">Ekonomi</option>
+            <option value="J03">Marketing</option>
+            <option value="J04">Akuntansi</option>
+          </select><br />
+          <button id="btn4">Simpan</button>
+          <button id="btn5">Batal</button>
+
+    </div>
+    <div id="edit">
+        <h1>Page edit</h1>
+        NIK : <input type="text" id="nik" value="NIK" /><br />
+        Nama : <input type="text" id="nama" value="Nama" /><br />
+        <label>Jurusan:</label>
+        <select  id="jurusan">
+            <option value="J01">Informatika</option>
+            <option value="J02">Ekonomi</option>
+            <option value="J03">Marketing</option>
+            <option value="J04">Akuntansi</option>
+          </select><br />
+          <button id="btn4">Simpan</button>
+          <button id="btn5">Batal</button>
+
+    </div>
+
+    <div id="tambah-grid">
+        <h1>Page tambah Grid</h1>
+        <table id="table-data">
+            <thead>
+                <tr >
+                    <th>Nik</th>
+                    <th>Nama</th>
+                    <th>Jurusan</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td >111</td>
+                    <td >Dedy</td>
+                    <td >J01</td>
+                    <td><button type="button" class="btn">View</button></td>
+                </tr>
+                <tr >
+                    <td> 112</td>
+                    <td >Adit</td>
+                    <td >J02</td>
+                    <td><button type="button" class="btn">View</button></td>
+                </tr>
+                <tr >
+                    <td >113</td>
+                    <td >Ina</td>
+                    <td >J03</td>
+                    <td><button type="button" class="btn">View</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+          <button id="btn7">Simpan</button>
+          <button id="btn8">Batal</button>
+    </div>
+
+   
+
+    <script>
+        $(document).ready(function() {
+            $("#edit").show();
+            $("#tambah").hide();
+            $("#view").hide();
+            $("#tambah-grid").hide();
+
+            $("#btn1").click(function() {
+                $("#view").show();
+                $("#edit").hide();
+                $("#tambah").hide();
+                $("#tambah-grid").hide();
+            });  
+
+            $("#btn2").click(function() {
+                $("#view").hide();
+                $("#edit").hide();
+                $("#tambah").show();
+                $("#tambah-grid").hide();
+            });     
+
+            $("#btn3").click(function() {
+                $("#edit").show();
+                $("#view").hide();
+                $("#tambah").hide();
+                $("#tambah-grid").hide();
+                
+            });   
+
+            $("#btn6").click(function() {
+                $("#tambah-grid").show();
+                $("#view").hide();
+                $("#tambah").hide();
+                $("#edit").hide();
+            });   
+
+
+            $("#btn4").click(function() {
+                var nik = $("#nik").val();
+                var nama = $("#nama").val();
+                var jurusan = $("#jurusan").val();
+                alert(nik+"-"+nama+"-"+jurusan);
+            });     
+
+            $("#btn5").click(function() {
+                $("#view").show();
+                $("#edit").hide();
+                $("#tambah").hide();
+                $("#tambah-grid").hide();
+            });  
+
+            $('#table-data tbody').on('click','.btn',function() {
+               
+               var row = $(this).closest('tr');
+               var col1 = row.find('td:eq(0)').text();
+               alert(col1);
+              
+            });   
+
+            $("#btn7").click(function() {
+                var html_table_data = "";  
+                var bRowStarted = true;  
+                $('#table-data tbody>tr').each(function () {  
+                    var row = $(this).closest('tr');
+                    var col1 = row.find('td:eq(0)').text();
+                    alert(col1);
+                });  
+                
+            });    
+
+        });
+    </script>
+</body>
+</html>
